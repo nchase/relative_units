@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<style type="text/less">
+			body {
+				font-size: 13px;
+
+				h1 {
+					font-family: 'Helvetica Neue'
+				}
+
+				.el {
+					position: relative;
+					width: 31vmax; // flexible enough?
+					height: 31vmax;
+					/*
+					     note: if we set the document (parent container's) height
+					     to something we can rely on (like the desired size of this element (possibly based on some other value) and the number of elements we want to show on the page),
+					     then set this to 30%, we can accomplish something resembling this technique too.
+					*/
+					float: left;
+					background: #27F088;
+					margin: 0.3vmax;
+
+					/*  try a different strategy when the window gets below a certain size?  */
+
+					&:before,
+					&:after {
+						content: '';
+						position: absolute;
+						width: 20%;
+						height: 20%;
+					}
+					&:before {
+						background: orange;
+					}
+					&:after {
+						background: plum;
+						right: 0;
+						bottom: 0;
+					}
+					img {
+						margin: 14% 13.5%;
+						width: 70%;
+						height: 70%;
+						background: red;
+						border: 7px solid darkorchid;
+					}
+				}
+			}
+		</style>
+		<script src="less-1.4.0-beta.js"></script>
+		<script src="underscore.js"></script>
+		<script src="jquery-2.0.2.js"></script>
+	</head>
+	<body>
+		<h1>
+			What's Up With Relative/Viewport-based Units in CSS?
+		</h1>
+		<div class="el"></div>
+		<div class="el"></div>
+		<div class="el"></div>
+		<div class="el"></div>
+		<div class="el"></div>
+		<div class="el"></div>
+		<div class="el"></div>
+		<div class="el"></div>
+		<div class="el"></div>
+		<div class="el"></div>
+		<div class="el"></div>
+		<div class="el"></div>
+		<div class="el"></div>
+	</body>
+	<script>
+		$('.el').each(function(){
+			$(this).html($("<img/>").attr("src","http://cloud.ahfr.org/images/7328e0f04d41e1129231a73e06f784f8_o.jpg"));
+		});
+	</script>
+</html>
